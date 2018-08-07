@@ -50,7 +50,6 @@ public class MovieReview extends AppCompatActivity {
         final TextView error_desc = (TextView)findViewById(R.id.txt_des);
         final ImageView error_img = (ImageView)findViewById(R.id.img);
 
-
         listView = (ListView)findViewById(R.id.list_review);
         final MovieReviewAdapter adapter = new MovieReviewAdapter(this,R.layout.list_movie_review,reviewItems);
 

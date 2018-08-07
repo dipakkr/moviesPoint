@@ -3,10 +3,10 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_tvshow"
-            android:title="@string/tvshow"
-            android:icon="@drawable/ic_live_tv_black_24dp"/>
+        <!--<item-->
+            <!--android:id="@+id/nav_tvshow"-->
+            <!--android:title="@string/tvshow"-->
+            <!--android:icon="@drawable/ic_live_tv_black_24dp"/>-->
 
         <item
             android:id="@+id/nav_movies"
@@ -19,10 +19,10 @@
             android:icon="@drawable/ic_person_pin_black_24dp"
             android:title="@string/menu_celebrities" />
 
-        <item
-            android:id="@+id/nav_fav"
-            android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="@string/menu_fav" />
+        <!--<item-->
+            <!--android:id="@+id/nav_fav"-->
+            <!--android:icon="@drawable/ic_favorite_black_24dp"-->
+            <!--android:title="@string/menu_fav" />-->
 
     </group>
 

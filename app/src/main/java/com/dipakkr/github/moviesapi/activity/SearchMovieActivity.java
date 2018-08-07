@@ -66,7 +66,8 @@ public class SearchMovieActivity extends AppCompatActivity {
 
                 if(ct != 0){
                     movies = response.body().getMovies();
-                    recyclerView.setAdapter(new MovieAdapter(movies,SearchMovieActivity.this,R.layout.list_movie_item));
+                    Log.d("SIZe_search","TOTAL MOVIES  : " + movies.size());
+//                    recyclerView.setAdapter(new MovieAdapter(movies,SearchMovieActivity.this,R.layout.list_movie_item));
                 }else {
                     notfound.setVisibility(View.VISIBLE);
                     txt.setVisibility(View.VISIBLE);

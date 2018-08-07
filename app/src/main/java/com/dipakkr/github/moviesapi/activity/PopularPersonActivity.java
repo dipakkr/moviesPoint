@@ -81,12 +81,12 @@ public class PopularPersonActivity extends AppCompatActivity {
                 mPersonRecycler, new RecyclerViewClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(PopularPersonActivity.this,CelebrityProfile.class);
-                String person_id = celebrities.get(position).getId();
-                String person_name = celebrities.get(position).getName();
-                intent.putExtra("person_name",person_name);
-                intent.putExtra("person_id",person_id);
-                startActivity(intent);
+//                Intent intent = new Intent(PopularPersonActivity.this,CelebrityProfile.class);
+//                String person_id = celebrities.get(position).getId();
+//                String person_name = celebrities.get(position).getName();
+//                intent.putExtra("person_name",person_name);
+//                intent.putExtra("person_id",person_id);
+//                startActivity(intent);
             }
 
             @Override

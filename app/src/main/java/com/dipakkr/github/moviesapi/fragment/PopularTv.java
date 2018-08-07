@@ -32,7 +32,7 @@ import retrofit2.Response;
 
 public class PopularTv extends Fragment {
 
-    ApIinterface apIinterface = apIinterface = Apiclient.getClient().create(ApIinterface.class);;
+    ApIinterface apIinterface = apIinterface = Apiclient.getClient().create(ApIinterface.class);
 
     private Context context;
 

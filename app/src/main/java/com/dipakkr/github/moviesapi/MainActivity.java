@@ -4,13 +4,11 @@ import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -19,7 +17,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,29 +28,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.dipakkr.github.moviesapi.activity.PopularPersonActivity;
 import com.dipakkr.github.moviesapi.activity.SearchMovieActivity;
-import com.dipakkr.github.moviesapi.activity.TvShowActivity;
-import com.dipakkr.github.moviesapi.activity.UserProfileActivity;
 import com.dipakkr.github.moviesapi.adapter.SimplePagerAdapter;
-import com.dipakkr.github.moviesapi.fragment.HighRatedMovies;
 import com.dipakkr.github.moviesapi.utils.HelpUtils;
-import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONObject;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
@@ -74,9 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String query;
 
     private GoogleApiClient apiClient;
-    private Profile profile;
+
     ImageView profile_image;
-    AccessToken accessToken = null;
 
     private AdView mAdView;
 
@@ -106,25 +86,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headerContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (accessToken != null) {
-                    Intent profile = new Intent(MainActivity.this, UserProfileActivity.class);
-                    profile.putExtra("name",user_name);
-                    startActivity(profile);
-                } else {
-                    Toast.makeText(MainActivity.this, "You are not logged in.", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(MainActivity.this, "You are not logged in.", Toast.LENGTH_SHORT).show();
             }
         });
 
-        if(accessToken == null){
-            mEmail.setTextSize(13);
-            mEmail.setText("You are not Logged In.");
-        }else{
-            user_name = profile.getName();
-            image_uri = profile.getProfilePictureUri(220,220);
-            mEmail.setText(user_name);
-            Picasso.with(getApplicationContext()).load(image_uri).transform(new CropCircleTransformation()).into(profile_image);
-        }
 
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tabs);
@@ -148,17 +113,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 
         switch (id){
-            case R.id.nav_tvshow :
-                Intent TVShow = new Intent(this, TvShowActivity.class);
-                startActivity(TVShow);
-                return true;
+//            case R.id.nav_tvshow :
+//                Intent TVShow = new Intent(this, TvShowActivity.class);
+//                startActivity(TVShow);
+//                return true;
 
             case R.id.nav_movies :
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
-
-            case R.id.nav_fav :
-                return true;
+//
+//            case R.id.nav_fav :
+//                return true;
 
             case R.id.nav_person :
                 Intent person = new Intent(this, PopularPersonActivity.class);

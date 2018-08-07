@@ -57,6 +57,7 @@ public class OnTheAir extends Fragment {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 movies = response.body().getMovies();
+                Log.d("TAG", movies.toString());
                 recyclerView.setAdapter(new MovieAdapter(movies,getActivity(),R.layout.list_movie_item));
             }
 

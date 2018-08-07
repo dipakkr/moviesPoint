@@ -27,11 +27,9 @@ import com.dipakkr.github.moviesapi.rest.Apiclient;
 
 import java.util.List;
 
-import okhttp3.HttpUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Url;
 
 public class VideosActivity extends AppCompatActivity {
 
@@ -51,15 +49,16 @@ public class VideosActivity extends AppCompatActivity {
         Log.v("PASSED ID ====??>>>",id);
 
         listView = (ListView)findViewById(R.id.list_trailers);
-        final VideoAdapter adapter = new VideoAdapter(this,R.layout.list_item_videos,movieVideoLists);
+//
+//        final VideoAdapter adapter = new VideoAdapter(this,R.layout.list_item_videos,movieVideoLists);
 
         ApIinterface apIinterface = Apiclient.getClient().create(ApIinterface.class);
         Call<MovieVideo> call = apIinterface.getMovieVideo(id,getResources().getString(R.string.api_key));
         call.enqueue(new Callback<MovieVideo>() {
             @Override
             public void onResponse(Call<MovieVideo> call, Response<MovieVideo> response) {
-                movieVideoLists = response.body().getMovieVideoLists();
-                listView.setAdapter(new VideoAdapter(VideosActivity.this,R.layout.list_item_videos,movieVideoLists));
+//                movieVideoLists = response.body().getMovieVideoLists();
+//                listView.setAdapter(new VideoAdapter(VideosActivity.this,R.layout.list_item_videos,movieVideoLists));
             }
 
             @Override
@@ -78,33 +77,35 @@ public class VideosActivity extends AppCompatActivity {
         });
 
     }
-    private class VideoAdapter extends ArrayAdapter<MovieVideoList>{
-
-        private Context mContext;
-        List<MovieVideoList> movieVideoLists;
-
-        public VideoAdapter(@NonNull Context context, @LayoutRes int resource,List<MovieVideoList> movieVideoLists) {
-            super(context, resource,movieVideoLists);
-            mContext = context;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            if(convertView == null){
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_videos,parent,false);
-            }
-            MovieVideoList movieVideoList = getItem(position);
-            int pos = position + 1;
-            TextView title = (TextView)convertView.findViewById(R.id.video_title);
-            title.setText("Trailer " +  pos);
-            TextView type = (TextView)convertView.findViewById(R.id.video_type);
-            type.setText(movieVideoList.getVideo_type());
-
-            return convertView;
-        }
-
-    }
+//    private class VideoAdapter extends ArrayAdapter<MovieVideoList>{
+//
+//        private Context mContext;
+//        List<MovieVideoList> movieVideoLists;
+//
+//        public VideoAdapter(@NonNull Context context, @LayoutRes int resource,List<MovieVideoList> movieVideoLists) {
+//            super(context, resource,movieVideoLists);
+//            mContext = context;
+//        }
+//
+//        @NonNull
+//        @Override
+//        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//
+//            if(convertView == null){
+//                convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_videos,parent,false);
+//            }
+//
+//            MovieVideoList movieVideoList = getItem(position);
+//            int pos = position + 1;
+//            TextView title = (TextView)convertView.findViewById(R.id.video_title);
+//            title.setText("Trailer " +  pos);
+//            TextView type = (TextView)convertView.findViewById(R.id.video_type);
+//            type.setText(movieVideoList.getVideo_type());
+//
+//            return convertView;
+//        }
+//
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

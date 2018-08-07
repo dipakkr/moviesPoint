@@ -1,7 +1,5 @@
 package com.dipakkr.github.moviesapi.model;
 
-import com.facebook.Profile;
-import com.google.android.gms.common.stats.StatsEvent;
 import com.google.gson.annotations.SerializedName;
 
 /**

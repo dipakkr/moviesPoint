@@ -39,7 +39,7 @@ public class CelebrityProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_celebrity_profile);
 
-        FontOverride.setDefaultFont(this, "MONOSPACE", "my_font.ttf");
+//        FontOverride.setDefaultFont(this, "MONOSPACE", "my_font.ttf");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,6 +67,7 @@ public class CelebrityProfile extends AppCompatActivity {
             }
         });
     }
+
     private void updateUI(){
 
         ImageView imageView = (ImageView)findViewById(R.id.image_person);
@@ -104,30 +105,30 @@ public class CelebrityProfile extends AppCompatActivity {
         }
 
     }
-    public static class FontOverride {
-
-        public static void setDefaultFont(Context context,
-                                          String staticTypefaceFieldName, String fontAssetName) {
-            final Typeface regular = Typeface.createFromAsset(context.getAssets(),
-                    fontAssetName);
-            replaceFont(staticTypefaceFieldName, regular);
-        }
-
-        protected static void replaceFont(String staticTypefaceFieldName,
-                                          final Typeface newTypeface) {
-            try {
-                final Field staticField = Typeface.class
-                        .getDeclaredField(staticTypefaceFieldName);
-                staticField.setAccessible(true);
-
-                staticField.set(null, newTypeface);
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-    }
+//    public static class FontOverride {
+//
+//        public static void setDefaultFont(Context context,
+//                                          String staticTypefaceFieldName, String fontAssetName) {
+//            final Typeface regular = Typeface.createFromAsset(context.getAssets(),
+//                    fontAssetName);
+//            replaceFont(staticTypefaceFieldName, regular);
+//        }
+//
+//        protected static void replaceFont(String staticTypefaceFieldName,
+//                                          final Typeface newTypeface) {
+//            try {
+//                final Field staticField = Typeface.class
+//                        .getDeclaredField(staticTypefaceFieldName);
+//                staticField.setAccessible(true);
+//
+//                staticField.set(null, newTypeface);
+//            } catch (NoSuchFieldException e) {
+//                e.printStackTrace();
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//
+//    }
 }
