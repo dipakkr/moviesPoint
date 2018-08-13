@@ -27,24 +27,16 @@
                 android:padding="10dp"
                 android:layout_height="wrap_content">
 
-
                 <TextView
                     android:id="@+id/movie_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:textStyle="bold"
+                    android:textSize="12sp"
                     android:layout_marginBottom="5dp"
                     android:textColor="@android:color/white"
                     android:text="Movie Title" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2015"
-                    android:layout_gravity="bottom"
-                    android:textColor="#e1e1e1"
-                    android:id="@+id/movie_release_date" />
 
             </LinearLayout>
 

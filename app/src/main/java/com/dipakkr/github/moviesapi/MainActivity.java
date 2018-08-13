@@ -152,28 +152,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        final MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_search,menu);
-
-        SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView)menu.findItem(R.id.movie_search).getActionView();
-        searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(MainActivity.this, SearchMovieActivity.class);
-                intent.putExtra("search",query);
-                startActivity(intent);
-                return true;
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+//        final MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_search,menu);
+//
+//        SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        searchView = (SearchView)menu.findItem(R.id.movie_search).getActionView();
+//        searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                Intent intent = new Intent(MainActivity.this, SearchMovieActivity.class);
+//                intent.putExtra("search",query);
+//                startActivity(intent);
+//                return true;
+//            }
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
 
         return true;
-    }
+    }gi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
